@@ -1,0 +1,270 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us - HomePro{% endblock %}
+
+{% block extra_css %}
+<style>
+    .hero {
+        background: linear-gradient(90deg, #0d6efd 0%, #3ab0ff 100%);
+        color: #fff;
+        padding: 60px 20px;
+        text-align: center;
+        margin-bottom: 50px;
+        border-radius: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+
+    .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    .contact-info h3 {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+
+    .info-item {
+        margin-bottom: 30px;
+        display: flex;
+        gap: 15px;
+    }
+
+    .info-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        flex-shrink: 0;
+    }
+
+    .info-text h4 {
+        color: #333;
+        margin: 0 0 5px 0;
+        font-weight: 600;
+    }
+
+    .info-text p {
+        color: #666;
+        margin: 0;
+    }
+
+    .contact-form {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form h3 {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: 500;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 14px;
+        font-family: inherit;
+        transition: border-color 0.3s;
+        box-sizing: border-box;
+    }
+
+    .form-control:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .form-control textarea {
+        resize: vertical;
+    }
+
+    .btn-send {
+        width: 100%;
+        padding: 12px 20px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn-send:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .success-message {
+        background: #d4edda;
+        color: #155724;
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border-left: 4px solid #28a745;
+    }
+
+    .error-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    @media (max-width: 768px) {
+        .contact-container {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-hero h1 {
+            font-size: 1.8rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>Get In Touch</h1>
+        <p>We'd love to hear from you. Send us a message!</p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<div class="contact-container">
+    <!-- Contact Information -->
+    <div class="contact-info">
+        <h3>Contact Information</h3>
+        
+        <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div class="info-text">
+                <h4>Address</h4>
+                <p>123 Main Street<br>Your City, State 12345</p>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon">📞</div>
+            <div class="info-text">
+                <h4>Phone</h4>
+                <p>+1 (555) 123-4567</p>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon">✉️</div>
+            <div class="info-text">
+                <h4>Email</h4>
+                <p>support@homepro.com</p>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon">🕐</div>
+            <div class="info-text">
+                <h4>Working Hours</h4>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+        <h3>Send us a Message</h3>
+
+        {% if success %}
+        <div class="success-message">
+            ✓ {{ success }}
+        </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+                {{ form.name }}
+                {% if form.name.errors %}
+                    <div class="error-message">{{ form.name.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <div class="error-message">{{ form.email.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label>
+                {{ form.phone }}
+                {% if form.phone.errors %}
+                    <div class="error-message">{{ form.phone.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.subject.id_for_label }}">{{ form.subject.label }}</label>
+                {{ form.subject }}
+                {% if form.subject.errors %}
+                    <div class="error-message">{{ form.subject.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+                {{ form.message }}
+                {% if form.message.errors %}
+                    <div class="error-message">{{ form.message.errors }}</div>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="btn-send">Send Message</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

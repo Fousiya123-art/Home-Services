@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %}
+Home Services - Professional Home Repair and Installation Services
+{% endblock title %}
+
+{% block body_class %}service-page{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/serviceview.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>{{ service.title }}</h1>
+<div class="service-detail-container">
+    <div class="image-section">
+        <img src="{{ service.img1.url }}" alt="{{ service.title }}">
+    </div>
+    <div class="info-section">
+        <h2>Price: ₹ {{ service.price }}</h2>
+        <p>{{ service.description }}</p>
+        
+        <!-- link triggers add_to_cart view; login_required will redirect if not logged in -->
+        <a href="{% url 'add_to_cart' service.id %}" class="btn btn-primary">
+            Add to Cart
+        </a>
+    </div>
+
+    {% endblock %}
+    {% block extra_js %}
+
+    {% endblock %}

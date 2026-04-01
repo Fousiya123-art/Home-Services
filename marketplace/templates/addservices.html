@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %}
+Home Services - Professional Home Repair and Installation Services
+{% endblock title %}
+
+{% block body_class %}service-page{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="">
+{% endblock %}
+
+{% block content %}
+<div class="proform">
+    <form action="" class="fm" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Submit" class="">
+
+
+
+    </form>
+</div>
+
+{% endblock %}
+{% block extra_js %}
+
+{% endblock %}

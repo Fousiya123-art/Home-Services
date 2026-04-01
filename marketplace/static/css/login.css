@@ -1,0 +1,89 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: rgb(92, 113, 64);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.lo {
+    background: #ffffff;
+    padding: 30px 35px;
+    width: 100%;
+    max-width: 360px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+
+.lo input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    
+}
+
+.lo input:focus {
+    border-color: #a13d6f;
+}
+
+.lo button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #329b76;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    
+}
+
+.lo button[type="submit"]:hover {
+    background-color: #329b76;
+}
+
+
+.lo h5 {
+    margin: 18px 0 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+
+.lo button a {
+    display: block;
+    text-decoration: none;
+    color: #1976d2;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.lo button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    background: #90ccb7;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.lo button:hover {
+    background: #a2e4cd;
+}
+
+
+.alert {
+    margin-bottom: 15px;
+    font-size: 14px;
+    padding: 10px;
+}

@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+
+<section class="bg-primary text-white py-5">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-md-6">
+
+<h1 class="display-5 fw-bold">
+Take Care Your Home With Exceptional Repairs
+</h1>
+
+<p>
+Professional home repair services with trusted experts.
+</p>
+
+<a href="{% url 'services' %}" class="btn btn-light btn-lg">Book Service</a>
+
+</div>
+
+<img src="https://img.freepik.com/free-photo/part-male-construction-worker_329181-3734.jpg" class="img-fluid">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="py-5">
+
+<div class="container">
+
+<h2 class="text-center mb-5">Our Services</h2>
+
+<div class="row g-4">
+
+<div class="col-md-3">
+
+<div class="card text-center shadow-sm">
+
+<div class="card-body">
+
+<h5>Plumbing</h5>
+<p>Professional plumbing repair</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-md-3">
+
+<div class="card text-center shadow-sm">
+
+<div class="card-body">
+
+<h5>Electrical</h5>
+<p>Certified electricians</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-md-3">
+
+<div class="card text-center shadow-sm">
+
+<div class="card-body">
+
+<h5>Painting</h5>
+<p>Interior and exterior painting</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-md-3">
+
+<div class="card text-center shadow-sm">
+
+<div class="card-body">
+
+<h5>Carpentry</h5>
+<p>Furniture repair services</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ADVANTAGES -->
+
+<section class="bg-dark text-white py-5">
+
+<div class="container">
+
+<h2 class="text-center mb-5">Why Choose Us</h2>
+
+<div class="row text-center">
+
+<div class="col-md-4">
+<h5>Trusted Experts</h5>
+<p>Experienced professionals</p>
+</div>
+
+<div class="col-md-4">
+<h5>Affordable Price</h5>
+<p>Quality services at fair price</p>
+</div>
+
+<div class="col-md-4">
+<h5>Quick Service</h5>
+<p>Fast response and repair</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT US  -->
+
+<section class="py-5">
+
+<div class="container">
+
+<h2 class="text-center mb-5">Explore Insights in Our Blog</h2>
+
+<div class="row g-4">
+
+<div class="col-4">
+
+<div class="card">
+
+<img src="https://www.serviceonwheel.com/uploads/service/891591670584966.jpg" class="card-img-top">
+
+<div class="card-body">
+
+<h5 class="card-title">Home Maintenance Tips</h5>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-4">
+
+<div class="card">
+
+<img src="https://www.serviceonwheel.com/uploads/service/180221671795046.jpg" class="card-img-top">
+
+<div class="card-body">
+
+<h5 class="card-title">Repair Tools Guide</h5>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-4">
+
+<div class="card">
+
+<img src="https://media.licdn.com/dms/image/v2/D4E12AQF8SEjhRjq0FA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1686082584161?e=2147483647&v=beta&t=l_febKv9gijXwU6Mdltll1W1AQBqx5e6mHjPbEudbtE" class="card-img-top">
+
+<div class="card-body">
+
+<h5 class="card-title">Energy Saving Ideas</h5>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="bg-primary text-white py-5">
+
+<div class="container text-center">
+
+<h2>Request a Free Quote</h2>
+
+<form class="row g-3 justify-content-center mt-3">
+
+<div class="col-md-3">
+<input type="text" class="form-control" placeholder="Name">
+</div>
+
+<div class="col-md-3">
+<input type="email" class="form-control" placeholder="Email">
+</div>
+
+<div class="col-md-3">
+<input type="text" class="form-control" placeholder="Service">
+</div>
+
+<div class="col-md-2">
+<button class="btn btn-light w-100">Submit</button>
+</div>
+
+</form>
+
+</div>
+
+</section>
+
+{% endblock %}

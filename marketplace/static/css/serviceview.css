@@ -1,0 +1,14 @@
+
+.service-detail-container {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+.image-section img {
+    max-width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.info-section {
+    flex: 1;
+}

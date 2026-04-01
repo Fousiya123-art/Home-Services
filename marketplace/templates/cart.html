@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}My Cart{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>My Cart</h2>
+<hr>
+
+{% if cart_items %}
+
+{% for c in cart_items %}
+<div class="cart-card">
+
+    <img src="{{ c.service.img1.url }}" width="120" alt="{{ c.service.title }}">
+
+
+    <div class="cart-info">
+        <h4>{{ c.service.title }}</h4>
+        <p>Price: ₹ {{ c.service.price }}</p>
+        <p>Category: {{ c.service.cat.name }}</p>
+
+
+        <form action="{% url 'update_cart_qty' c.id %}" method="post" class="qty-form">
+            {% csrf_token %}
+
+
+
+            <input type="number" name="quantity" value="{{ c.quantity }}" min="1"
+                style="width:60px; text-align:center;">
+
+
+
+            <button type="submit" class="btn btn-sm btn-primary">
+                Update
+            </button>
+        </form>
+
+
+        <p class="item-total">
+            Item Total: ₹ {{ c.item_total }}
+        </p>
+    </div>
+    <a href="{% url 'buy_now' c.id %}" class="btn btn-success">
+        Buy Now
+    </a>
+
+
+    <a href="{% url 'delete_cart_item' c.id %}" class="btn btn-danger">
+        Remove
+    </a>
+
+</div>
+{% endfor %}
+
+
+<hr>
+<div class="cart-total">
+    <h3>Grand Total: ₹ {{ grand_total }}</h3>
+</div>
+
+{% else %}
+<p>Sorry {{ user.username }}, your cart is empty.</p>
+{% endif %}
+
+{% endblock %}

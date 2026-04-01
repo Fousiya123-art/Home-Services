@@ -1,0 +1,43 @@
+/* Page heading spacing */
+h2 {
+    margin-bottom: 15px;
+}
+
+/* Cart card container */
+.cart-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+
+    background: #fff;
+}
+
+/* Service image */
+.cart-card img {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Text area */
+.cart-card h4 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.cart-card p {
+    margin: 3px 0;
+    font-size: 14px;
+    color: #444;
+}
+
+/* Push delete button to right */
+.cart-card .btn {
+    margin-left: auto;
+}

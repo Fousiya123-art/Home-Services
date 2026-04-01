@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <h2 class="mb-4">Search Services</h2>
+
+    <form method="get" action="{% url 'search' %}" class="row g-2 mb-4">
+      <div class="col-sm-9">
+        <input type="text" name="q" value="{{ request.GET.q|default:'' }}" class="form-control" placeholder="Search for service e.g. plumbing" required>
+      </div>
+      <div class="col-sm-3">
+        <button type="submit" class="btn btn-primary w-100">Search</button>
+      </div>
+    </form>
+
+    {% if prod %}
+      <div class="row g-4">
+        {% for service in prod %}
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">{{ service.name }}</h5>
+                {% if service.description %}
+                  <p class="card-text">{{ service.description|truncatewords:20 }}</p>
+                {% else %}
+                  <p class="card-text">No description available.</p>
+                {% endif %}
+                <p class="fw-bold">Price: {{ service.price }}</p>
+                {% if service.category %}
+                  <span class="badge bg-secondary">{{ service.category.name }}</span>
+                {% endif %}
+              </div>
+              <div class="card-footer bg-transparent border-0">
+                <a href="{% url 'services' %}" class="btn btn-outline-primary btn-sm">View All</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="alert alert-warning">No services found. Try another search keyword.</div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

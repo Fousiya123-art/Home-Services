@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %}
+Home Services - Professional Home Repair and Installation Services
+{% endblock title %}
+
+
+{% block body_class %}Service-page{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/services.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="card-container">
+    {% for i in data %}
+    <div class="main">
+        <div class="img-box">
+            <img src="{{ i.img1.url }}" alt="{{ i.name }}">
+            <a href="">
+                <div class="wishlist">🛒</div>
+
+            </a>
+        </div>
+
+        <div class="card-body">
+            <h5 class="title">{{ i.name }}</h5> <!-- /title -->
+            <h4 class="price">₹ {{ i.price }}</h4>
+            <p class="details">{{ i.description }}</p>
+            <!-- <p class="condition">Good condition</p> -->
+            <a href="{% url 'serviceview' i.id %}" class="btn btn-primary">Service details</a>
+            <a href="{% url 'add_to_cart' i.id %}" class="btn btn-outline-success ms-2">Add to Cart</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+{% block extra_js %}
+
+{% endblock %}
